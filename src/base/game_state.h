@@ -4,7 +4,9 @@ typedef enum _GameState
     PLAYING,
     GAME_OVER,
     TITLE,
-    BEATED
+    BEATED,
+    DEAD,
+    RESTART_LEVEL
 }GameState;
 
 void GameState_changeState(GameState);

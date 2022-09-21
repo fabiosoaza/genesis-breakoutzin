@@ -109,7 +109,7 @@ bool Paddle_hitBallIfCollided(Paddle *paddle, Ball *ball)
             hit = TRUE;
         }
     }
-
+    
     return hit;
 }
 

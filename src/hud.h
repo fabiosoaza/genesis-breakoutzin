@@ -16,6 +16,7 @@ const int CENTRALIZED_MSG_POS_Y = 15;
 #define MSG_PAUSE "PAUSE"
 #define MSG_CONGRATULATIONS "CONGRATULATIONS YOU WIN!"
 #define MSG_PLAY_AGAIN "PRESS START TO PLAY AGAIN!"
+#define MSG_LEVEL "LEVEL %02d"
 
 void Hud_show(char str[], int posXInTile, int posYInTile)
 {
@@ -73,6 +74,15 @@ void Hud_displayWinMessage()
     Hud_clearMessage();
     VDP_drawText(MSG_CONGRATULATIONS, abs(20 - strlen(MSG_CONGRATULATIONS) / 2), CENTRALIZED_MSG_POS_Y);
     VDP_drawText(MSG_PLAY_AGAIN, abs(20 - strlen(MSG_PLAY_AGAIN) / 2), CENTRALIZED_MSG_POS_Y + 1);
+}
+
+void Hud_displayLevelMessage(u8 level)
+{
+    char msgLevel[10];
+    Hud_clearMessage();
+    sprintf(msgLevel, MSG_LEVEL, level);
+    VDP_drawText(msgLevel, abs(20 - strlen(msgLevel) / 2), CENTRALIZED_MSG_POS_Y);
+    VDP_drawText(MSG_START, abs(20 - strlen(MSG_START) / 2), CENTRALIZED_MSG_POS_Y + 1);
 }
 
 void Hud_clearMessage()

@@ -6,7 +6,7 @@
 
 
 #define LOAD_LEVEL(level) \
-    _loadLevel(sizeof(level) / sizeof(level[0]), sizeof(level[0]) / sizeof(level[0][0]), &level)
+    _loadMap(sizeof(level) / sizeof(level[0]), sizeof(level[0]) / sizeof(level[0][0]), &level)
 
 const u8 level1[6][14] = {
     {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
@@ -91,10 +91,14 @@ u8 level10[8][14] = {
     {7, 7, 1, 1, 1, 7, 1, 1, 7, 1, 1, 1, 7, 7},
     {7, 7, 7, 1, 7, 7, 7, 7, 7, 7, 1, 7, 7, 7}};
 
+
+
 u8 levelTest[1][7] = {
     {7, 6, 5, 4, 3, 2, 1}
 
 };
+
+
 
 void Levels_destroy(BrickMap *map)
 {
@@ -140,7 +144,7 @@ int Levels_totalBreakableBlocks(BrickMap *map)
     return total;
 }
 
-BrickMap *_loadLevel(int rows, int cols, u8 map[rows][cols])
+static BrickMap * _loadMap(int rows, int cols, u8 map[rows][cols])
 {
 
     BrickMap *brickMap = (BrickMap *)malloc(sizeof(BrickMap));

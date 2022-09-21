@@ -154,9 +154,10 @@ u8 Brick_getScore(BlockType type)
     }
 }
 
-BlockType getBrickTypeByPosition(BrickWall *wall, int posX, int posY){
-    int posXInTile = posX/8;
-    int posYInTile = posY/8;
+BlockType getBrickTypeByPosition(BrickWall *wall, int posX, int posY)
+{
+    int posXInTile = posX / 8;
+    int posYInTile = posY / 8;
 }
 
 void BrickWall_draw(BrickWall *wall)
@@ -183,6 +184,19 @@ void BrickWall_draw(BrickWall *wall)
             posYInTile++;
         }
     }
+}
+
+void BrickWall_clear(BrickWall *wall)
+{
+
+    int widthInTile = BRICK_WIDTH / 8;
+    int heightInTile = BRICK_HEIGHT / 8;
+
+    int leftStart = wall->base.x / 8;
+    int posXInTile = leftStart;
+    int posYInTile = wall->base.y / 8;
+
+    VDP_clearTileMapRect(BG_B, posXInTile, posYInTile, wall->map->cols * widthInTile, wall->map->rows * heightInTile);
 }
 
 #endif //_BRICK_H_
