@@ -2,11 +2,14 @@
 #include <resources.h>
 
 
+
 #define SET_PCM(id, resource) \
     XGM_setPCM(id, resource, sizeof(resource))
 
 #define PLAY_SFX(id) \
     (XGM_startPlayPCM(id, 2, SOUND_PCM_CH2))
+
+
 
 void Sound_loadTracks()
 {

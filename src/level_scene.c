@@ -180,7 +180,7 @@ static void _checkEdgeCollision()
     }
     else if (Entity_getRight(_ball.base) > RIGHT_EDGE)
     {
-        Entity_setX(&_ball.base, RIGHT_EDGE - _ball.base.width);
+        Entity_setX(&_ball.base, (RIGHT_EDGE - _ball.base.width)) ;
         Ball_invertX(&_ball);
         collided = TRUE;
     }
