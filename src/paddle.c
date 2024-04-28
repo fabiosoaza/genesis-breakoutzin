@@ -129,7 +129,7 @@ bool Paddle_hitBallIfCollided(Paddle *paddle, Ball *ball)
                 ball->base.velX += Utils_sign(ball->base.velX) * 3;
             }
 
-            if( hitRightPaddleEdge || hitRightPaddleEdge ) {
+            if( hitLeftPaddleEdge || hitRightPaddleEdge ) {
                 ball->base.velX += Utils_sign(ball->base.velX) * 1;
             }
             
